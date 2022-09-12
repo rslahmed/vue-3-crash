@@ -1,50 +1,39 @@
 <script setup>
-import {ref} from "vue";
 
-const counter = ref(0)
-
-function decrease() {
-  if (counter.value > 0) {
-    counter.value--
-  }
-}
-function increase() {
-  if (counter.value < 10) {
-    counter.value++
-  }
-}
 </script>
 
 <template>
   <main class="min-h-screen w-full py-20 px-5 flex items-center justify-center bg-cyan-800">
-    <!-- Counter wrapper -->
-    <div class="w-full max-w-xs grid grid-cols-3 gap-4">
-      <!-- Decrease button -->
-      <button @click="decrease()"
-              class="bg-cyan-700 rounded-lg py-4 flex items-center justify-center text-white shadow-md hover:bg-opacity-90 hover:shadow-xl active:scale-90 transition">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-             class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15"/>
-        </svg>
-      </button>
-      <!-- Decrease button end -->
+    <!-- Slider wrapper -->
+    <div class="w-full max-w-md relative">
 
-      <!-- Counter -->
-      <div
-          class="bg-cyan-700 rounded-lg py-4 flex items-center justify-center text-white shadow-md text-2xl font-semibold">
-        {{ counter }}
+      <!-- Single Slider -->
+      <div>
+        <img src="/images/car-1.jpg" alt="car"
+             class="w-full h-56 object-cover rounded-lg shadow">
+        <p class="text-center mt-3 text-gray-200 text-xl uppercase">
+          Red car
+        </p>
       </div>
-      <!-- Counter end -->
+      <!-- Single Slider end -->
 
-      <!-- Increase button -->
-      <button @click="increase"
-              class="bg-cyan-700 rounded-lg py-4 flex items-center justify-center text-white shadow-md hover:bg-opacity-90 hover:shadow-xl active:scale-90 transition">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+      <!-- Arrows prev -->
+      <button class="w-10 h-10 rounded-full bg-white hover:shadow-lg active:scale-90 transition absolute left-2 top-24 text-gray-700 flex items-center justify-center opacity-50 hover:opacity-100">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
              class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
         </svg>
       </button>
-      <!-- Increase button end -->
+      <!-- Arrows prev end -->
+
+      <!-- Arrows next -->
+      <button class="w-10 h-10 rounded-full bg-white hover:shadow-lg active:scale-90 transition absolute right-2 top-24 text-gray-700 flex items-center justify-center opacity-50 hover:opacity-100">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+             class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+        </svg>
+      </button>
+      <!-- Arrows next end -->
 
     </div>
   </main>
