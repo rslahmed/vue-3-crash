@@ -1,9 +1,3 @@
-<script setup>
-import {ref} from "vue";
-
-const todoLists = ref(['Learn todo', 'Practice todo'])
-</script>
-
 <template>
   <main class="min-h-screen w-full py-20 px-5 flex items-center justify-center bg-cyan-800">
     <!-- Todos wrapper -->
