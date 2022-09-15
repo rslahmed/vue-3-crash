@@ -7,9 +7,10 @@ const routes = [
         component: Home,
     },
     {
-        path: '/product',
+        path: '/product/:id',
         name: 'Product',
         component: () => import('../views/Product.vue'),
+        props: true
     },
     {
         path: '/order-complete',
