@@ -17,6 +17,11 @@ const routes = [
         name: 'OrderComplete',
         component: () => import('../views/OrderComplete.vue'),
     },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('../views/404.vue'),
+    },
 ];
 
 const router = createRouter({
