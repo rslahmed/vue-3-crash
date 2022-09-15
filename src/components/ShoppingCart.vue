@@ -1,17 +1,7 @@
 <script setup>
-import {computed, ref} from "vue";
-import {useStore} from "../store.js";
+import {ref} from "vue";
 
 const show = ref(false)
-const store = useStore()
-
-const totalPrice = computed(() => {
-  let price = 0
-  store.cart.forEach(item => {
-    price += item.price * item.quantity
-  })
-  return price
-})
 </script>
 
 <template>
@@ -25,7 +15,7 @@ const totalPrice = computed(() => {
     </svg>
     <span
         class="absolute top-0 right-0 w-5 h-5 text-xs rounded-full bg-red-500 text-white flex items-center justify-center">
-      {{ store.cart.length }}
+      3
     </span>
   </button>
   <!-- Cart button end -->
@@ -35,7 +25,7 @@ const totalPrice = computed(() => {
     <div class="absolute h-full w-72 bg-cyan-700 overflow-y-auto right-0 top-0 flex flex-col">
       <!-- title -->
       <div class="flex items-center justify-between bg-cyan-600 py-3 px-4">
-        <h4 class="text-white font-semibold">{{ store.cart.length }} Items in Cart</h4>
+        <h4 class="text-white font-semibold">3 Items in Cart</h4>
         <button @click="show=false"
                 class="bg-gray-900/30 px-3 py-1 text-sm rounded text-gray-300 hover:text-white active:scale-90">
           Close
@@ -43,23 +33,22 @@ const totalPrice = computed(() => {
       </div>
       <!-- items -->
       <div class="mt-2 divide-y divide-gray-300/20">
-        <div v-for="item in store.cart" :key="item.id" class="flex px-4 py-2">
+        <div v-for="item in 3" :key="item" class="flex px-4 py-2">
           <!-- item image -->
           <div class="flex-shrink-0 mr-3">
-            <img :src="item.image" alt="" class="w-16 h-12 object-cover rounded">
+            <img src="/images/car-1.jpg" class="w-16 h-12 object-cover rounded">
           </div>
           <!-- item details -->
           <div class="flex-grow">
-            <router-link :to="{name: 'Product', params: {id: item.id}}"
-                         @click="show=false"
+            <router-link to="/product"
                          class="block font-semibold text-white">
-              {{ item.name }}
+              Car Name
             </router-link>
-            <p class="text-gray-300">x{{ item.quantity }}</p>
+            <p class="text-gray-300">x3</p>
           </div>
           <div class="flex-shrink-0 text-right">
             <!-- Remove item -->
-            <button @click="store.removeCart(item.id)" class="text-gray-300 hover:text-white active:scale-90">
+            <button class="text-gray-300 hover:text-white active:scale-90">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                    stroke="currentColor" class="w-5 h-5">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -67,7 +56,7 @@ const totalPrice = computed(() => {
               </svg>
             </button>
             <!-- item price -->
-            <h4 class="font-semibold text-white">${{ parseFloat(item.price * item.quantity).toFixed(2) }}</h4>
+            <h4 class="font-semibold text-white">$120.00</h4>
           </div>
         </div>
       </div>
@@ -76,7 +65,7 @@ const totalPrice = computed(() => {
       <div class="p-2 mt-auto">
         <router-link @click="show=false" :to="{name: 'OrderComplete'}"
                      class="block text-center w-full py-2.5 bg-cyan-600 rounded-lg text-gray-300 hover:text-white hover:bg-cyan-500 font-semibold transition active:scale-90">
-          Checkout - {{ parseFloat(totalPrice).toFixed(2) }}
+          Checkout - $120.00
         </router-link>
       </div>
     </div>

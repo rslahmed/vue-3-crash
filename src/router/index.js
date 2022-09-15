@@ -7,15 +7,19 @@ const routes = [
         component: Home,
     },
     {
-        path: '/product/:id',
+        path: '/product',
         name: 'Product',
         component: () => import('../views/Product.vue'),
-        props: true
     },
     {
         path: '/order-complete',
         name: 'OrderComplete',
         component: () => import('../views/OrderComplete.vue'),
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('../views/404.vue'),
     },
 ];
 
