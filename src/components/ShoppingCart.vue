@@ -63,10 +63,10 @@ const show = ref(false)
 
       <!-- checkout -->
       <div class="p-2 mt-auto">
-        <router-link @click="show=false" :to="{name: 'OrderComplete'}"
+        <button @click="show=false"
                      class="block text-center w-full py-2.5 bg-cyan-600 rounded-lg text-gray-300 hover:text-white hover:bg-cyan-500 font-semibold transition active:scale-90">
           Checkout - $120.00
-        </router-link>
+        </button>
       </div>
     </div>
   </div>
